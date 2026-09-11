@@ -1,0 +1,50 @@
+SOWMIYA S
+Pondicherry, Pondicherry, India
+Email: sowmiya523@wec.edu.in | Phone: +91 73050 40440
+LinkedIn: https://linkedin.com/in/sowmiya-saravanan
+GitHub: https://github.com/Sowmiya2106
+
+EDUCATION
+B.Tech – Information Science & Engineering (Sep 2023 – Jun 2027)
+Women's Engineering College (Govt), Puducherry
+CGPA: 7.8 / 10
+Relevant Coursework: Machine Learning, Data Structures & Algorithms, Database Management, Computer Networks
+
+SKILLS
+- Languages: Python, Java, C, SQL, R
+- ML / DL: TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy, Matplotlib
+- Web: HTML5, CSS3, JavaScript (ES6+), REST APIs
+- Tools: MySQL, Git, GitHub, Jupyter Notebook, Google Colab, VS Code, MS Excel
+- Soft Skills: People Management, Team Collaboration, Communication
+
+WORK EXPERIENCE
+Research Intern | National Institute of Technology, Tiruchirappalli (NIT Trichy) (Jun 2025 – Jul 2025)
+- Researched hyperspectral image classification using CNN and Vision Transformer (ViT) on Indian Pines dataset.
+- Achieved 98% accuracy, outperforming CNN baseline using spectral-spatial patch extraction with ViT.
+- Optimised preprocessing (PCA dimensionality reduction, normalisation) and hyperparameter tuning.
+- Proposed model achieved 98.73% training accuracy and 98.11% validation accuracy.
+
+PROJECTS
+1. Hyper Spectral Image Classification – CNN & Vision Transformer (Jun – Jul 2025)
+Deep learning pipeline on Indian Pines dataset (200+ bands, 10,249 samples). Reached 98% accuracy.
+Tech: Python, PyTorch, Scikit-learn | GitHub: https://github.com/Sowmiya2106
+
+2. Real-Time Weather Web Application (Feb 2026)
+Responsive weather portal using OpenWeatherMap API with async/await, live forecasts, dynamic DOM.
+Tech: HTML, CSS, JavaScript | GitHub: https://github.com/Sowmiya2106
+
+3. Frontend Web Development Portfolio (May 2025 – Mar 2026)
+Multi-page interactive web portals including company profile, event registration, e-commerce showcase.
+Tech: HTML5, CSS3, JavaScript | GitHub: https://github.com/Sowmiya2106
+
+CERTIFICATIONS
+- Diploma in Full Stack Web Development (Nov 2023 – Nov 2024)
+- Biological Data Analysis & Visualisation with R (NPTEL – IIT Kharagpur, Feb 2025 – Mar 2025)
+- Java Programming for Beginners (Mar 2025 – Apr 2025)
+- Design, Technology & Innovation (NPTEL – IIT Bombay, Jun 2025 – Sep 2025)
+- Research Contribution Certificate (NIT Tiruchirappalli, Jun 2025 – Jul 2025)
+- Diploma in Computer-aided Teaching (Apr 2023 – Oct 2023)
+
+LEADERSHIP & ACTIVITIES
+- Student Organiser – Lunova '26 Technical Symposium (Feb 2026)
+- Class Representative – Women's Engineering College, 3rd Year (2025–2026)

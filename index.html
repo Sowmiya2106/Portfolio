@@ -1401,6 +1401,367 @@
           text-align: center;
         }
       }
+
+      /* CV Modal Dialog Styles */
+      .cv-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 8, 18, 0.88);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.25rem;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      .cv-modal-backdrop.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .cv-modal-container {
+        background: #0f172a;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-lg);
+        width: 100%;
+        max-width: 860px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(20, 184, 166, 0.15);
+        transform: translateY(20px) scale(0.97);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+      }
+
+      .cv-modal-backdrop.active .cv-modal-container {
+        transform: translateY(0) scale(1);
+      }
+
+      .cv-modal-header {
+        padding: 1rem 1.5rem;
+        background: #0a0f1d;
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+      }
+
+      .cv-modal-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .cv-modal-title h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+      }
+
+      .cv-pill-badge {
+        font-size: 0.72rem;
+        font-weight: 700;
+        background: rgba(20, 184, 166, 0.15);
+        color: var(--teal-light);
+        border: 1px solid rgba(20, 184, 166, 0.3);
+        padding: 0.15rem 0.55rem;
+        border-radius: 9999px;
+      }
+
+      .cv-view-tabs {
+        display: inline-flex;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border-subtle);
+        border-radius: 6px;
+        padding: 2px;
+        gap: 2px;
+      }
+
+      .cv-view-tab {
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 0.35rem 0.75rem;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: all var(--transition-fast);
+      }
+
+      .cv-view-tab:hover {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .cv-view-tab.active {
+        background: var(--teal-primary);
+        color: #042f2e;
+        box-shadow: 0 2px 6px rgba(20, 184, 166, 0.3);
+      }
+
+      .cv-modal-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      /* On-Page Resume Section Card Styles */
+      .resume-container-box {
+        background: #0f172a;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.65), 0 0 30px rgba(20, 184, 166, 0.1);
+        overflow: hidden;
+      }
+
+      .resume-top-bar {
+        padding: 1rem 1.5rem;
+        background: #0a0f1d;
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .resume-doc-wrapper {
+        padding: 1.5rem;
+        background: #0b1120;
+      }
+
+      @media (max-width: 640px) {
+        .resume-top-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .resume-doc-wrapper {
+          padding: 1rem 0.75rem;
+        }
+      }
+
+      .cv-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.45rem 0.85rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        border: none;
+        text-decoration: none;
+      }
+
+      .cv-btn-print {
+        background: var(--teal-primary);
+        color: #042f2e;
+      }
+      .cv-btn-print:hover {
+        background: var(--teal-light);
+      }
+
+      .cv-btn-download {
+        background: rgba(20, 184, 166, 0.15);
+        color: var(--teal-light);
+        border: 1px solid rgba(20, 184, 166, 0.35);
+      }
+      .cv-btn-download:hover {
+        background: rgba(20, 184, 166, 0.25);
+      }
+
+      .cv-btn-external {
+        background: rgba(255, 255, 255, 0.08);
+        color: #e2e8f0;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .cv-btn-external:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+      }
+
+      .cv-btn-close {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-muted);
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid var(--border-subtle);
+        transition: all var(--transition-fast);
+      }
+      .cv-btn-close:hover {
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        border-color: rgba(239, 68, 68, 0.3);
+      }
+
+      .cv-modal-body {
+        padding: 1.75rem 2rem;
+        overflow-y: auto;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .cv-paper-preview {
+        background: #131d33;
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 2rem;
+      }
+
+      .cv-doc-header {
+        text-align: center;
+        padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .cv-doc-name {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1.85rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.35rem;
+      }
+
+      .cv-doc-meta {
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .cv-doc-meta a {
+        color: var(--teal-light);
+        text-decoration: none;
+      }
+      .cv-doc-meta a:hover {
+        text-decoration: underline;
+      }
+
+      .cv-doc-section {
+        margin-bottom: 1.6rem;
+      }
+
+      .cv-doc-section-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.88rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--teal-light);
+        border-bottom: 1px solid rgba(20, 184, 166, 0.25);
+        padding-bottom: 0.35rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .cv-doc-item {
+        margin-bottom: 1rem;
+      }
+
+      .cv-item-title {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 0.94rem;
+      }
+
+      .cv-item-subtitle {
+        display: flex;
+        justify-content: space-between;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .cv-item-bullets {
+        list-style-type: disc;
+        margin-left: 1.25rem;
+        color: var(--text-secondary);
+        font-size: 0.88rem;
+      }
+
+      .cv-item-bullets li {
+        margin-bottom: 0.3rem;
+      }
+
+      .cv-skills-grid {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        row-gap: 0.4rem;
+        font-size: 0.88rem;
+      }
+
+      .cv-skill-label {
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .cv-skill-value {
+        color: var(--text-secondary);
+      }
+
+      .cv-cert-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.88rem;
+        margin-bottom: 0.35rem;
+        color: var(--text-secondary);
+      }
+
+      .cv-cert-item strong {
+        color: #ffffff;
+      }
+
+      @media (max-width: 640px) {
+        .cv-modal-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .cv-modal-actions {
+          width: 100%;
+          justify-content: flex-start;
+        }
+        .cv-modal-body {
+          padding: 1rem;
+        }
+        .cv-paper-preview {
+          padding: 1.25rem 1rem;
+        }
+        .cv-skills-grid {
+          grid-template-columns: 1fr;
+          row-gap: 0.2rem;
+        }
+        .cv-item-title, .cv-item-subtitle, .cv-cert-item {
+          flex-direction: column;
+          gap: 0.1rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1426,6 +1787,7 @@
           <li><a href="#experience" class="nav-link" id="link-experience">Experience</a></li>
           <li><a href="#projects" class="nav-link" id="link-projects">Projects</a></li>
           <li><a href="#certifications" class="nav-link" id="link-certifications">Certifications</a></li>
+          <li><a href="#resume" class="nav-link" id="link-resume" style="color: var(--teal-light); font-weight: 600;">Resume</a></li>
           <li><a href="#contact" class="nav-link" id="link-contact">Contact</a></li>
         </ul>
 
@@ -1462,6 +1824,7 @@
         <a href="#experience" class="mobile-nav-link" role="menuitem">Experience</a>
         <a href="#projects" class="mobile-nav-link" role="menuitem">Projects</a>
         <a href="#certifications" class="mobile-nav-link" role="menuitem">Certifications</a>
+        <a href="#resume" class="mobile-nav-link" role="menuitem" style="color: var(--teal-light); font-weight: 600;">Resume &amp; CV</a>
         <a href="#contact" class="mobile-nav-link" role="menuitem">Contact</a>
       </div>
     </nav>
@@ -1498,6 +1861,15 @@
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
+              </a>
+              <a href="#resume" class="btn btn-secondary" id="hero-btn-cv" aria-label="View Sowmiya S Resume and CV">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                <span>View Resume / CV</span>
               </a>
               <a href="#contact" class="btn btn-secondary" id="hero-btn-contact">
                 <span>Contact Me</span>
@@ -2248,7 +2620,320 @@
       </div>
     </section>
 
-    <!-- 9. Contact Section -->
+    <!-- 9. Dedicated Resume & Curriculum Vitae Section -->
+    <section id="resume" class="section resume-section" aria-label="Curriculum Vitae and Resume">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-pill">Official Credentials</span>
+          <h2 class="section-title">Resume &amp; Curriculum Vitae</h2>
+          <p class="section-subtitle">
+            Complete overview of academic performance (CGPA 7.84), NIT Trichy research internship, technical proficiencies, machine learning projects, and professional certifications.
+          </p>
+        </div>
+
+        <div class="resume-container-box reveal">
+          <!-- Top Control Toolbar -->
+          <div class="resume-top-bar">
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--teal-light);" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Sowmiya S &bull; CV</h3>
+                <span class="cv-pill-badge">B.Tech ISE &bull; Anna Univ</span>
+              </div>
+
+              <!-- View Mode Tabs -->
+              <div class="cv-view-tabs" role="tablist" aria-label="Resume View Mode">
+                <button type="button" class="cv-view-tab active" id="page-tab-interactive" role="tab" aria-selected="true" title="Interactive formatted resume view">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  <span>Document View</span>
+                </button>
+                <button type="button" class="cv-view-tab" id="page-tab-pdf" role="tab" aria-selected="false" title="Original PDF document view">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                  <span>PDF Embed View</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="cv-modal-actions">
+              <a href="/Sowmiya_S_Resume.pdf" download="Sowmiya_S_Resume.pdf" class="cv-action-btn cv-btn-print" id="page-download-pdf-btn" title="Download Official PDF Resume">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download PDF</span>
+              </a>
+
+              <a href="/cv.html" target="_blank" rel="noopener noreferrer" class="cv-action-btn cv-btn-external" title="Open CV in full dedicated tab">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Full Page View</span>
+              </a>
+
+              <a href="/Sowmiya_S_Resume.txt" download="Sowmiya_S_Resume.txt" class="cv-action-btn cv-btn-download" id="page-download-txt-btn" title="Download Plaintext ATS CV">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <span>ATS Text</span>
+              </a>
+
+              <button type="button" class="cv-action-btn cv-btn-download" id="page-print-btn" title="Print Resume">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                <span>Print</span>
+              </button>
+
+              <button type="button" class="cv-action-btn cv-btn-external open-cv-trigger" title="Open Expanded Modal">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <polyline points="9 21 3 21 3 15"></polyline>
+                  <line x1="21" y1="3" x2="14" y2="10"></line>
+                  <line x1="3" y1="21" x2="10" y2="14"></line>
+                </svg>
+                <span>Expanded Modal</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Document Wrapper -->
+          <div class="resume-doc-wrapper">
+            <!-- Offline Quick Notice Banner -->
+            <div style="background: rgba(20, 184, 166, 0.08); border: 1px solid rgba(20, 184, 166, 0.25); border-radius: 8px; padding: 0.75rem 1.25rem; margin-bottom: 1.25rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; color: #f1f5f9; font-size: 0.88rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Direct Official Copy: <strong style="color: #5eead4;">Sowmiya_S_Resume.pdf</strong></span>
+              </div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <a href="/Sowmiya_S_Resume.pdf" download="Sowmiya_S_Resume.pdf" class="btn btn-primary" style="padding: 0.38rem 0.85rem; font-size: 0.82rem; gap: 0.4rem;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Download PDF</span>
+                </a>
+                <a href="/cv.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.38rem 0.85rem; font-size: 0.82rem; gap: 0.4rem;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>Open Full Window</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Panel 1: Formatted Document View -->
+            <div id="page-interactive-panel">
+              <div class="cv-paper-preview">
+                <!-- Header -->
+                <div class="cv-doc-header">
+                  <h2 class="cv-doc-name">Sowmiya S</h2>
+                  <div class="cv-doc-meta">
+                    <a href="mailto:sowmiya523@wec.edu.in">sowmiya523@wec.edu.in</a>
+                    <span>&bull;</span>
+                    <a href="tel:+917305040440">+91 73050 40440</a>
+                    <span>&bull;</span>
+                    <a href="https://linkedin.com/in/sowmiya-saravanan" target="_blank" rel="noopener noreferrer">linkedin.com/in/sowmiya-saravanan</a>
+                    <span>&bull;</span>
+                    <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer">github.com/Sowmiya2106</a>
+                    <span>&bull;</span>
+                    <span>Pondicherry, India</span>
+                  </div>
+                </div>
+
+                <!-- Education -->
+                <div class="cv-doc-section">
+                  <h3 class="cv-doc-section-title">Education</h3>
+                  <div class="cv-doc-item">
+                    <div class="cv-item-title">
+                      <span>B.Tech – Information Science &amp; Engineering</span>
+                      <span style="color: var(--teal-light); font-size: 0.85rem;">Sep 2023 – Jun 2027</span>
+                    </div>
+                    <div class="cv-item-subtitle">
+                      <span>Women's Engineering College (Govt), Puducherry</span>
+                      <span style="font-weight: 700; color: #ffffff;">CGPA: 7.8 / 10</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                      <strong style="color: var(--text-secondary);">Core Coursework:</strong> Machine Learning, Deep Learning, Data Structures &amp; Algorithms, Database Management Systems, Computer Networks
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="cv-doc-section">
+                  <h3 class="cv-doc-section-title">Technical Skills</h3>
+                  <div class="cv-skills-grid">
+                    <div class="cv-skill-label">Languages:</div>
+                    <div class="cv-skill-value">Python, Java, C, SQL, R</div>
+                    <div class="cv-skill-label">ML / DL:</div>
+                    <div class="cv-skill-value">TensorFlow / PyTorch, Scikit-learn, Pandas, NumPy, Matplotlib, Vision Transformers (ViT), CNNs</div>
+                    <div class="cv-skill-label">Web:</div>
+                    <div class="cv-skill-value">HTML5, CSS3, JavaScript (ES6+), REST APIs, Responsive UI</div>
+                    <div class="cv-skill-label">Tools &amp; DB:</div>
+                    <div class="cv-skill-value">MySQL, Git, GitHub, VS Code, Jupyter Notebook, Google Colab, MS Excel</div>
+                    <div class="cv-skill-label">Soft Skills:</div>
+                    <div class="cv-skill-value">Technical Leadership, Departmental Coordination, Public Presentation, Problem Solving</div>
+                  </div>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="cv-doc-section">
+                  <h3 class="cv-doc-section-title">Work Experience</h3>
+                  <div class="cv-doc-item">
+                    <div class="cv-item-title">
+                      <span>Research Intern</span>
+                      <span style="color: var(--teal-light); font-size: 0.85rem;">Jun 2025 – Jul 2025</span>
+                    </div>
+                    <div class="cv-item-subtitle">
+                      <span>National Institute of Technology, Tiruchirappalli (NIT Trichy)</span>
+                    </div>
+                    <ul class="cv-item-bullets">
+                      <li>Researched hyperspectral image classification using Convolutional Neural Networks (CNN) and Vision Transformer (ViT) architectures on the Indian Pines dataset.</li>
+                      <li>Achieved 98% classification accuracy — outperforming standard CNN-only baselines by implementing spectral-spatial patch extraction combined with ViT self-attention.</li>
+                      <li>Optimised preprocessing pipelines with Principal Component Analysis (PCA) dimensionality reduction, enhancing inference speed by ~15%.</li>
+                      <li>Quantified performance metrics, yielding <strong>98.73% training accuracy</strong> and <strong>98.11% validation accuracy</strong>.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="cv-doc-section">
+                  <h3 class="cv-doc-section-title">Featured Projects</h3>
+                  <div class="cv-doc-item">
+                    <div class="cv-item-title">
+                      <span>Hyper Spectral Image Classification – CNN &amp; Vision Transformer</span>
+                      <span style="color: var(--teal-light); font-size: 0.85rem;">Jun – Jul 2025</span>
+                    </div>
+                    <ul class="cv-item-bullets">
+                      <li>Engineered end-to-end deep learning pipeline combining spectral-spatial patch extraction with ViT on 10,249 multi-band samples.</li>
+                      <li>Attained 98% overall classification accuracy and reduced computational overhead via automated PCA feature selection.</li>
+                    </ul>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      Tech Stack: Python, PyTorch, Scikit-learn, NumPy, Matplotlib &bull; <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light);">GitHub Repository</a>
+                    </p>
+                  </div>
+
+                  <div class="cv-doc-item">
+                    <div class="cv-item-title">
+                      <span>Real-Time Weather Web Application</span>
+                      <span style="color: var(--teal-light); font-size: 0.85rem;">Feb 2026</span>
+                    </div>
+                    <ul class="cv-item-bullets">
+                      <li>Designed and deployed responsive single-page application integrating OpenWeatherMap REST API with live asynchronous data fetching.</li>
+                      <li>Implemented dynamic weather icon rendering, metric conversions, and search error handling with zero external runtime dependencies.</li>
+                    </ul>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      Tech Stack: HTML5, CSS3, JavaScript (ES6+), REST APIs &bull; <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light);">GitHub Repository</a>
+                    </p>
+                  </div>
+
+                  <div class="cv-doc-item">
+                    <div class="cv-item-title">
+                      <span>Frontend Web Development Portfolio Projects</span>
+                      <span style="color: var(--teal-light); font-size: 0.85rem;">May 2025 – Mar 2026</span>
+                    </div>
+                    <ul class="cv-item-bullets">
+                      <li>Architected interactive web apps including corporate profile showcase, event registration portal, and responsive e-commerce fashion shop.</li>
+                      <li>Prioritized high accessibility (WCAG AA), responsive CSS Grid/Flexbox layouts, and optimized asset delivery.</li>
+                    </ul>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      Tech Stack: HTML5, CSS3, JavaScript &bull; <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light);">GitHub Repository</a>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="cv-doc-section">
+                  <h3 class="cv-doc-section-title">Certifications &amp; Research</h3>
+                  <div class="cv-cert-item">
+                    <span><strong>Research Contribution Certificate</strong> (NIT Tiruchirappalli)</span>
+                    <span style="color: var(--text-muted); font-size: 0.83rem;">Jun 2025 – Jul 2025</span>
+                  </div>
+                  <div class="cv-cert-item">
+                    <span><strong>Diploma in Full Stack Web Development</strong> (Professional Certification)</span>
+                    <span style="color: var(--text-muted); font-size: 0.83rem;">Nov 2023 – Nov 2024</span>
+                  </div>
+                  <div class="cv-cert-item">
+                    <span><strong>Biological Data Analysis &amp; Visualisation with R</strong> (NPTEL – IIT Kharagpur)</span>
+                    <span style="color: var(--text-muted); font-size: 0.83rem;">Feb 2025 – Mar 2025</span>
+                  </div>
+                  <div class="cv-cert-item">
+                    <span><strong>Design, Technology &amp; Innovation</strong> (NPTEL – IIT Bombay)</span>
+                    <span style="color: var(--text-muted); font-size: 0.83rem;">Jun 2025 – Sep 2025</span>
+                  </div>
+                  <div class="cv-cert-item">
+                    <span><strong>Java Programming for Beginners</strong> (Online Certification)</span>
+                    <span style="color: var(--text-muted); font-size: 0.83rem;">Mar 2025 – Apr 2025</span>
+                  </div>
+                  <div class="cv-cert-item">
+                    <span><strong>Diploma in Computer-aided Teaching</strong> (Offline Certification)</span>
+                    <span style="color: var(--text-muted); font-size: 0.83rem;">Apr 2023 – Oct 2023</span>
+                  </div>
+                </div>
+
+                <!-- Leadership & Extracurricular -->
+                <div class="cv-doc-section" style="margin-bottom: 0;">
+                  <h3 class="cv-doc-section-title">Leadership &amp; Extracurricular</h3>
+                  <div class="cv-doc-item">
+                    <div class="cv-item-title">
+                      <span>Student Organiser – Lunova '26 Technical Symposium</span>
+                      <span style="color: var(--teal-light); font-size: 0.85rem;">Feb 2026</span>
+                    </div>
+                    <div class="cv-item-subtitle">
+                      <span>Women's Engineering College</span>
+                    </div>
+                    <ul class="cv-item-bullets">
+                      <li>Spearheaded inter-departmental logistics, scheduling, and stage management across 20+ student volunteers from 5 engineering streams.</li>
+                    </ul>
+                  </div>
+
+                  <div class="cv-doc-item" style="margin-bottom: 0;">
+                    <div class="cv-item-title">
+                      <span>Class Representative (3rd Year, Dept of ISE)</span>
+                      <span style="color: var(--teal-light); font-size: 0.85rem;">2025 – 2026</span>
+                    </div>
+                    <div class="cv-item-subtitle">
+                      <span>Women's Engineering College</span>
+                    </div>
+                    <ul class="cv-item-bullets">
+                      <li>Served as official liaison between 40+ engineering students and academic faculty, leading revision circles and coordinating academic reviews.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: PDF Embed View -->
+            <div id="page-pdf-panel" style="display: none;">
+              <div style="background: #131d33; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;">
+                <div style="padding: 0.65rem 1rem; background: #0b1120; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text-secondary); flex-wrap: wrap; gap: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    <span>Official PDF: <strong style="color: #f1f5f9;">Sowmiya_S_Resume.pdf</strong></span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <a href="/Sowmiya_S_Resume.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem;">
+                      <span>Open in Full Tab</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                  </div>
+                </div>
+                <iframe src="/Sowmiya_S_Resume.pdf#toolbar=1&view=FitH" title="Sowmiya S Resume PDF Embed" style="width: 100%; height: 75vh; min-height: 560px; border: none; background: #ffffff;"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Contact Section -->
     <section id="contact" aria-label="Contact Sowmiya S">
       <div class="container">
         <div class="section-header reveal">
@@ -2278,6 +2963,18 @@
                 <div>
                   <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Email</div>
                   <div style="font-weight: 600;">sowmiya523@wec.edu.in</div>
+                </div>
+              </a>
+
+              <a href="tel:+917305040440" class="contact-method-item" id="contact-link-phone">
+                <div class="method-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Phone</div>
+                  <div style="font-weight: 600;">+91 73050 40440</div>
                 </div>
               </a>
 
@@ -2315,6 +3012,22 @@
                 <div>
                   <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Location</div>
                   <div style="font-weight: 600;">Pondicherry, Pondicherry, India</div>
+                </div>
+              </div>
+
+              <div class="contact-method-item open-cv-trigger" id="contact-link-cv" style="cursor: pointer; border-color: rgba(20, 184, 166, 0.3); background: rgba(20, 184, 166, 0.06);">
+                <div class="method-icon-box" style="color: var(--teal-light); background: rgba(20, 184, 166, 0.18);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size: 0.78rem; color: var(--teal-light); text-transform: uppercase; font-weight: 600;">Curriculum Vitae</div>
+                  <div style="font-weight: 600;">View &amp; Download Full CV</div>
                 </div>
               </div>
             </div>
@@ -2396,6 +3109,301 @@
         </div>
       </div>
     </footer>
+
+    <!-- Curriculum Vitae (CV) Interactive Modal Dialog -->
+    <div
+      class="cv-modal-backdrop"
+      id="cv-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cv-modal-title-heading"
+      tabindex="-1"
+    >
+      <div class="cv-modal-container">
+        <!-- Header -->
+        <div class="cv-modal-header">
+          <div class="cv-modal-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--teal-light);" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <h3 id="cv-modal-title-heading">Curriculum Vitae</h3>
+            <span class="cv-pill-badge">Official CV</span>
+          </div>
+
+          <div class="cv-view-tabs" role="tablist" aria-label="Resume View Mode">
+            <button type="button" class="cv-view-tab active" id="tab-interactive-view" role="tab" aria-selected="true" title="Interactive formatted resume view">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Document View</span>
+            </button>
+            <button type="button" class="cv-view-tab" id="tab-pdf-view" role="tab" aria-selected="false" title="Original 1-page PDF document view">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+              <span>PDF Embed View</span>
+            </button>
+          </div>
+
+          <div class="cv-modal-actions">
+            <a href="/Sowmiya_S_Resume.pdf" download="Sowmiya_S_Resume.pdf" class="cv-action-btn cv-btn-print" id="modal-download-pdf-btn" title="Download Official PDF Resume">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download PDF</span>
+            </a>
+
+            <a href="/Sowmiya_S_Resume.txt" download="Sowmiya_S_Resume.txt" class="cv-action-btn cv-btn-download" id="modal-download-txt-btn" title="Download ATS Plain-Text CV">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Download Text</span>
+            </a>
+
+            <a href="/cv.html" target="_blank" rel="noopener noreferrer" class="cv-action-btn cv-btn-external" title="Open CV in printable full-screen view">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              <span>Full Page</span>
+            </a>
+
+            <button type="button" class="cv-btn-close" id="modal-close-cv-btn" aria-label="Close CV Modal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="cv-modal-body">
+          <div style="background: rgba(20, 184, 166, 0.08); border: 1px solid rgba(20, 184, 166, 0.25); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #f1f5f9; font-size: 0.88rem; font-weight: 500;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Looking for an offline copy? Download Sowmiya's Resume:</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <a href="/Sowmiya_S_Resume.pdf" download="Sowmiya_S_Resume.pdf" class="btn btn-primary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem; gap: 0.4rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
+              </a>
+              <a href="/Sowmiya_S_Resume.txt" download="Sowmiya_S_Resume.txt" class="btn btn-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem; gap: 0.4rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                <span>ATS Text</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Document View Panel -->
+          <div id="view-interactive-panel">
+            <div class="cv-paper-preview">
+              <!-- CV Header -->
+              <div class="cv-doc-header">
+                <h2 class="cv-doc-name">Sowmiya S</h2>
+                <div class="cv-doc-meta">
+                  <a href="mailto:sowmiya523@wec.edu.in">sowmiya523@wec.edu.in</a>
+                  <span>&bull;</span>
+                  <a href="tel:+917305040440">+91 73050 40440</a>
+                  <span>&bull;</span>
+                  <a href="https://linkedin.com/in/sowmiya-saravanan" target="_blank" rel="noopener noreferrer">linkedin.com/in/sowmiya-saravanan</a>
+                  <span>&bull;</span>
+                  <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer">github.com/Sowmiya2106</a>
+                  <span>&bull;</span>
+                  <span>Pondicherry, India</span>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="cv-doc-section">
+                <h3 class="cv-doc-section-title">Education</h3>
+                <div class="cv-doc-item">
+                  <div class="cv-item-title">
+                    <span>B.Tech – Information Science &amp; Engineering</span>
+                    <span style="color: var(--teal-light); font-size: 0.85rem;">Sep 2023 – Jun 2027</span>
+                  </div>
+                  <div class="cv-item-subtitle">
+                    <span>Women's Engineering College (Govt), Puducherry</span>
+                    <span style="font-weight: 700; color: #ffffff;">CGPA: 7.8 / 10</span>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                    <strong style="color: var(--text-secondary);">Relevant Coursework:</strong> Machine Learning, Data Structures &amp; Algorithms, Database Management, Computer Networks
+                  </p>
+                </div>
+              </div>
+
+              <!-- Skills -->
+              <div class="cv-doc-section">
+                <h3 class="cv-doc-section-title">Skills</h3>
+                <div class="cv-skills-grid">
+                  <div class="cv-skill-label">Languages:</div>
+                  <div class="cv-skill-value">Python, Java, C, SQL, R</div>
+                  <div class="cv-skill-label">ML / DL:</div>
+                  <div class="cv-skill-value">TensorFlow / PyTorch, Scikit-learn, Pandas, NumPy, Matplotlib</div>
+                  <div class="cv-skill-label">Web:</div>
+                  <div class="cv-skill-value">HTML5, CSS3, JavaScript (ES6+)</div>
+                  <div class="cv-skill-label">Tools:</div>
+                  <div class="cv-skill-value">MySQL, MS Excel, Git, GitHub, Jupyter Notebook, Google Colab, VS Code</div>
+                  <div class="cv-skill-label">Soft Skills:</div>
+                  <div class="cv-skill-value">People Management, Team Collaboration, Communication</div>
+                </div>
+              </div>
+
+              <!-- Work Experience -->
+              <div class="cv-doc-section">
+                <h3 class="cv-doc-section-title">Work Experience</h3>
+                <div class="cv-doc-item">
+                  <div class="cv-item-title">
+                    <span>Research Intern</span>
+                    <span style="color: var(--teal-light); font-size: 0.85rem;">Jun 2025 – Jul 2025</span>
+                  </div>
+                  <div class="cv-item-subtitle">
+                    <span>National Institute of Technology, Tiruchirappalli (NIT Trichy)</span>
+                  </div>
+                  <ul class="cv-item-bullets">
+                    <li>Researched hyperspectral image classification using CNN and Vision Transformer (ViT) architectures on the Indian Pines dataset.</li>
+                    <li>Achieved 98% classification accuracy — outperforming CNN-only baseline by implementing spectral-spatial patch extraction with ViT.</li>
+                    <li>Optimised preprocessing pipelines (dimensionality reduction, normalisation) and tuned hyperparameters to enhance model efficiency.</li>
+                    <li>Quantified performance metrics, achieving <strong>98.73% training accuracy</strong> and <strong>98.11% validation accuracy</strong> on image classification tasks.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Projects -->
+              <div class="cv-doc-section">
+                <h3 class="cv-doc-section-title">Projects</h3>
+                
+                <div class="cv-doc-item">
+                  <div class="cv-item-title">
+                    <span>Hyper Spectral Image Classification – CNN &amp; Vision Transformer</span>
+                    <span style="color: var(--teal-light); font-size: 0.85rem;">Jun – Jul 2025</span>
+                  </div>
+                  <ul class="cv-item-bullets">
+                    <li>Built a deep learning pipeline for hyperspectral image classification using CNN and ViT on the Indian Pines dataset (200+ spectral bands, 10,249 samples).</li>
+                    <li>Achieved 98% overall classification accuracy by combining spectral-spatial patch extraction with transformer attention mechanisms.</li>
+                    <li>Reduced dimensionality with PCA and fine-tuned batch size, learning rate, and dropout — improving inference speed by ~15% over the CNN baseline.</li>
+                  </ul>
+                  <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                    Tech Stack: Python, PyTorch, NumPy, Matplotlib, Scikit-learn &bull; <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light);">GitHub Repo</a>
+                  </p>
+                </div>
+
+                <div class="cv-doc-item">
+                  <div class="cv-item-title">
+                    <span>Real-Time Weather Web Application</span>
+                    <span style="color: var(--teal-light); font-size: 0.85rem;">Feb 2026</span>
+                  </div>
+                  <ul class="cv-item-bullets">
+                    <li>Developed a responsive, single-page weather app using HTML, CSS, and JavaScript with live data from the OpenWeatherMap API.</li>
+                    <li>Implemented async/await API calls, JSON parsing, and dynamic DOM updates to display temperature, humidity, and weather icons in real time.</li>
+                  </ul>
+                  <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                    Tech Stack: HTML5, CSS3, JavaScript (ES6+), REST API &bull; <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light);">GitHub Repo</a>
+                  </p>
+                </div>
+
+                <div class="cv-doc-item">
+                  <div class="cv-item-title">
+                    <span>Frontend Web Development Portfolio</span>
+                    <span style="color: var(--teal-light); font-size: 0.85rem;">May 2025 – Mar 2026</span>
+                  </div>
+                  <ul class="cv-item-bullets">
+                    <li>Designed and built multiple static and interactive websites: a company profile site, event registration portal, and e-commerce fashion store.</li>
+                    <li>Applied semantic HTML5, CSS Flexbox/Grid, responsive design, and multi-page navigation to deliver clean, user-friendly interfaces.</li>
+                  </ul>
+                  <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                    Tech Stack: HTML5, CSS3, JavaScript &bull; <a href="https://github.com/Sowmiya2106" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light);">GitHub Repo</a>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Certifications -->
+              <div class="cv-doc-section">
+                <h3 class="cv-doc-section-title">Certifications</h3>
+                <div class="cv-cert-item">
+                  <span><strong>Diploma in Full Stack Web Development</strong> (Self-paced / Offline)</span>
+                  <span style="color: var(--text-muted); font-size: 0.83rem;">Nov 2023 – Nov 2024</span>
+                </div>
+                <div class="cv-cert-item">
+                  <span><strong>Biological Data Analysis &amp; Visualisation with R</strong> (NPTEL – IIT Kharagpur)</span>
+                  <span style="color: var(--text-muted); font-size: 0.83rem;">Feb 2025 – Mar 2025</span>
+                </div>
+                <div class="cv-cert-item">
+                  <span><strong>Java Programming for Beginners</strong> (Online Course)</span>
+                  <span style="color: var(--text-muted); font-size: 0.83rem;">Mar 2025 – Apr 2025</span>
+                </div>
+                <div class="cv-cert-item">
+                  <span><strong>Design, Technology &amp; Innovation</strong> (NPTEL – IIT Bombay)</span>
+                  <span style="color: var(--text-muted); font-size: 0.83rem;">Jun 2025 – Sep 2025</span>
+                </div>
+                <div class="cv-cert-item">
+                  <span><strong>Research Contribution Certificate</strong> (NIT Tiruchirappalli)</span>
+                  <span style="color: var(--text-muted); font-size: 0.83rem;">Jun 2025 – July 2025</span>
+                </div>
+                <div class="cv-cert-item">
+                  <span><strong>Diploma in Computer-aided Teaching</strong> (Offline)</span>
+                  <span style="color: var(--text-muted); font-size: 0.83rem;">Apr 2023 – Oct 2023</span>
+                </div>
+              </div>
+
+              <!-- Leadership & Activities -->
+              <div class="cv-doc-section" style="margin-bottom: 0;">
+                <h3 class="cv-doc-section-title">Leadership &amp; Activities</h3>
+                <div class="cv-doc-item">
+                  <div class="cv-item-title">
+                    <span>Student Organiser – Lunova '26 Technical Symposium</span>
+                    <span style="color: var(--teal-light); font-size: 0.85rem;">Feb 2026</span>
+                  </div>
+                  <div class="cv-item-subtitle">
+                    <span>Women's Engineering College</span>
+                  </div>
+                  <ul class="cv-item-bullets">
+                    <li>Coordinated logistics, scheduling, and execution for the college's 1st inter-departmental technical symposium, managing a team of 20+ student volunteers across 5 departments.</li>
+                  </ul>
+                </div>
+
+                <div class="cv-doc-item" style="margin-bottom: 0;">
+                  <div class="cv-item-title">
+                    <span>Class Representative</span>
+                    <span style="color: var(--teal-light); font-size: 0.85rem;">3rd Year (2025–2026)</span>
+                  </div>
+                  <div class="cv-item-subtitle">
+                    <span>Women's Engineering College</span>
+                  </div>
+                  <ul class="cv-item-bullets">
+                    <li>Acted as primary liaison between 40+ students and faculty, resolving academic scheduling issues and communicating class concerns to administration.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PDF Document Preview Panel -->
+          <div id="view-pdf-panel" style="display: none;">
+            <div style="background: #131d33; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;">
+              <div style="padding: 0.65rem 1rem; background: #0b1120; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text-secondary); flex-wrap: wrap; gap: 0.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  <span>Official PDF File: <strong style="color: #f1f5f9;">Sowmiya_S_Resume.pdf</strong></span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <a href="/Sowmiya_S_Resume.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--teal-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem;">
+                    <span>Open in Full Page</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+              <iframe src="/Sowmiya_S_Resume.pdf#toolbar=1&view=FitH" title="Sowmiya S Resume PDF Preview" style="width: 100%; height: 72vh; min-height: 560px; border: none; background: #ffffff;"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Vanilla JavaScript -->
     <script>
@@ -2533,6 +3541,240 @@
         if (yearHolder) {
           yearHolder.textContent = new Date().getFullYear();
         }
+
+        // 7. CV Modal Functionality
+        const cvModal = document.getElementById('cv-modal');
+        const cvTriggers = document.querySelectorAll('.open-cv-trigger');
+        const cvCloseBtn = document.getElementById('modal-close-cv-btn');
+        const cvPrintBtn = document.getElementById('modal-print-cv-btn');
+        const cvDownloadTxtBtn = document.getElementById('modal-download-txt-btn');
+
+        function openCvModal(e) {
+          if (e) e.preventDefault();
+          if (cvModal) {
+            cvModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+
+        function closeCvModal() {
+          if (cvModal) {
+            cvModal.classList.remove('active');
+            document.body.style.overflow = '';
+            if (window.location.hash === '#cv-modal') {
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+          }
+        }
+
+        cvTriggers.forEach(function (btn) {
+          btn.addEventListener('click', openCvModal);
+        });
+
+        if (cvCloseBtn) {
+          cvCloseBtn.addEventListener('click', closeCvModal);
+        }
+
+        if (window.location.hash === '#cv-modal') {
+          openCvModal();
+        }
+
+        window.addEventListener('hashchange', function () {
+          if (window.location.hash === '#cv-modal') {
+            openCvModal();
+          }
+        });
+
+        if (cvModal) {
+          cvModal.addEventListener('click', function (e) {
+            if (e.target === cvModal) {
+              closeCvModal();
+            }
+          });
+        }
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && cvModal && cvModal.classList.contains('active')) {
+            closeCvModal();
+          }
+        });
+
+        if (cvPrintBtn) {
+          cvPrintBtn.addEventListener('click', function () {
+            window.open('/cv.html', '_blank');
+          });
+        }
+
+        // On-Page Resume Print Button
+        const pagePrintBtn = document.getElementById('page-print-btn');
+        if (pagePrintBtn) {
+          pagePrintBtn.addEventListener('click', function () {
+            window.open('/cv.html', '_blank');
+          });
+        }
+
+        // Tab Switcher for On-Page Resume Section (#resume)
+        const pageTabInteractive = document.getElementById('page-tab-interactive');
+        const pageTabPdf = document.getElementById('page-tab-pdf');
+        const pagePanelInteractive = document.getElementById('page-interactive-panel');
+        const pagePanelPdf = document.getElementById('page-pdf-panel');
+
+        if (pageTabInteractive && pageTabPdf && pagePanelInteractive && pagePanelPdf) {
+          pageTabInteractive.addEventListener('click', function () {
+            pageTabInteractive.classList.add('active');
+            pageTabInteractive.setAttribute('aria-selected', 'true');
+            pageTabPdf.classList.remove('active');
+            pageTabPdf.setAttribute('aria-selected', 'false');
+            pagePanelInteractive.style.display = 'block';
+            pagePanelPdf.style.display = 'none';
+          });
+
+          pageTabPdf.addEventListener('click', function () {
+            pageTabPdf.classList.add('active');
+            pageTabPdf.setAttribute('aria-selected', 'true');
+            pageTabInteractive.classList.remove('active');
+            pageTabInteractive.setAttribute('aria-selected', 'false');
+            pagePanelInteractive.style.display = 'none';
+            pagePanelPdf.style.display = 'block';
+          });
+        }
+
+        // Tab Switcher in CV Modal (Interactive View vs PDF Document View)
+        const tabInteractive = document.getElementById('tab-interactive-view');
+        const tabPdf = document.getElementById('tab-pdf-view');
+        const panelInteractive = document.getElementById('view-interactive-panel');
+        const panelPdf = document.getElementById('view-pdf-panel');
+
+        if (tabInteractive && tabPdf && panelInteractive && panelPdf) {
+          tabInteractive.addEventListener('click', function () {
+            tabInteractive.classList.add('active');
+            tabInteractive.setAttribute('aria-selected', 'true');
+            tabPdf.classList.remove('active');
+            tabPdf.setAttribute('aria-selected', 'false');
+            panelInteractive.style.display = 'block';
+            panelPdf.style.display = 'none';
+          });
+
+          tabPdf.addEventListener('click', function () {
+            tabPdf.classList.add('active');
+            tabPdf.setAttribute('aria-selected', 'true');
+            tabInteractive.classList.remove('active');
+            tabInteractive.setAttribute('aria-selected', 'false');
+            panelInteractive.style.display = 'none';
+            panelPdf.style.display = 'block';
+          });
+        }
+
+        const cvRawText = `Sowmiya S
+Email: sowmiya523@wec.edu.in | Phone: +91 73050 40440
+LinkedIn: linkedin.com/in/sowmiya-saravanan
+GitHub: github.com/Sowmiya2106
+Location: Pondicherry, Pondicherry, India
+
+==================================================
+EDUCATION
+==================================================
+B.Tech – Information Science & Engineering (Sep 2023 – Jun 2027)
+Women's Engineering College (Govt), Puducherry
+CGPA: 7.8 / 10
+Relevant Coursework: Machine Learning, Data Structures & Algorithms, Database Management, Computer Networks
+
+==================================================
+TECHNICAL SKILLS
+==================================================
+• Languages: Python, Java, C, SQL, R
+• ML / DL: TensorFlow / PyTorch, Scikit-learn, Pandas, NumPy, Matplotlib
+• Web: HTML, CSS, JavaScript
+• Tools: MySQL, MS Excel, Git, Jupyter Notebook, Google Colab, VS Code
+• Soft Skills: People Management, Team Collaboration, Communication
+
+==================================================
+WORK EXPERIENCE
+==================================================
+Research Intern | National Institute of Technology, Tiruchirappalli (NIT Trichy) (Jun 2025 – Jul 2025)
+• Researched hyperspectral image classification using CNN and Vision Transformer (ViT) architectures on the Indian Pines dataset.
+• Achieved 98% classification accuracy — outperforming CNN-only baseline by implementing spectral-spatial patch extraction with ViT.
+• Optimised preprocessing pipelines (dimensionality reduction, normalisation) and tuned hyperparameters to enhance model efficiency.
+• Quantified the performance of CNN and ViT architectures, identifying that the proposed model achieved 98.73% training accuracy and 98.11% validation accuracy on image classification tasks.
+
+==================================================
+PROJECTS
+==================================================
+1. Hyper Spectral Image Classification – CNN & Vision Transformer (Jun – Jul 2025)
+• Built a deep learning pipeline for hyperspectral image classification using CNN and ViT on the Indian Pines dataset (200+ spectral bands, 10,249 samples).
+• Achieved 98% overall classification accuracy by combining spectral-spatial patch extraction with transformer attention mechanisms.
+• Reduced dimensionality with PCA and fine-tuned batch size, learning rate, and dropout — improving inference speed by ~15% over the CNN baseline.
+Tech Stack: Python, PyTorch, NumPy, Matplotlib, Scikit-learn | GitHub: github.com/Sowmiya2106
+
+2. Real-Time Weather Web Application (Feb 2026)
+• Developed a responsive, single-page weather app using HTML, CSS, and JavaScript with live data from the OpenWeatherMap API.
+• Implemented async/await API calls, JSON parsing, and dynamic DOM updates to display temperature, humidity, and weather icons in real time.
+Tech Stack: HTML5, CSS3, JavaScript (ES6+), REST API | GitHub: github.com/Sowmiya2106
+
+3. Frontend Web Development Portfolio (May 2025 – Mar 2026)
+• Designed and built multiple static and interactive websites: a company profile site, event registration portal, and e-commerce fashion store.
+• Applied semantic HTML5, CSS Flexbox/Grid, responsive design, and multi-page navigation to deliver clean, user-friendly interfaces.
+Tech Stack: HTML5, CSS3, JavaScript | GitHub: github.com/Sowmiya2106
+
+==================================================
+CERTIFICATIONS
+==================================================
+• Diploma in Full Stack Web Development – Self-paced / Offline (Nov 2023 – Nov 2024)
+• Biological Data Analysis & Visualisation with R – NPTEL – IIT Kharagpur (Feb 2025 – Mar 2025)
+• Java Programming for Beginners – Online Course (Mar 2025 – Apr 2025)
+• Design, Technology & Innovation – NPTEL – IIT Bombay (Jun 2025 – Sep 2025)
+• Research Contribution Certificate – NIT Tiruchirappalli (Jun 2025 – July 2025)
+• Diploma in Computer-aided Teaching - Offline (Apr 2023 – Oct 2023)
+
+==================================================
+LEADERSHIP & ACTIVITIES
+==================================================
+• Student Organiser – Lunova '26 Technical Symposium | Women's Engineering College (Feb 2026)
+  Coordinated logistics, scheduling, and execution for the college's 1st inter-departmental technical symposium, managing a team of 20+ volunteers.
+• Class Representative | Women's Engineering College | 3rd Year (2025–2026)
+  Acted as primary liaison between 40+ students and faculty, resolving academic scheduling issues and communicating class concerns to administration.
+`;
+
+        // Robust PDF Resume Download Handler
+        document.querySelectorAll('a[download="Sowmiya_S_Resume.pdf"]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            fetch('/Sowmiya_S_Resume.pdf')
+              .then(function (res) {
+                if (!res.ok) throw new Error('Network error');
+                return res.blob();
+              })
+              .then(function (blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Sowmiya_S_Resume.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+              })
+              .catch(function () {
+                window.open('/Sowmiya_S_Resume.pdf', '_blank');
+              });
+          });
+        });
+
+        // Robust ATS Plain-Text Resume Download Handler
+        document.querySelectorAll('a[download="Sowmiya_S_Resume.txt"], button[id="modal-download-txt-btn"]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            const blob = new Blob([cvRawText], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Sowmiya_S_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+          });
+        });
       })();
     </script>
   </body>
